@@ -1,0 +1,87 @@
+*{
+    font-family:ui-sans-serif;
+}
+
+/*** navbar ***/
+
+.nav-item{
+    letter-spacing: .2em;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.dropdown-item{
+    letter-spacing: .2em;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.my_footer{
+    background-color:aqua;
+    position: relative;
+    height: 60px;
+}
+
+.my_footer p{
+    padding-top: 20px;
+    font-size: 14px;
+}
+
+/*** category ***/
+.my_row_class{
+    padding-top:15px;
+}
+
+.my_row_class .mx-auto{
+    color:black;
+    font-size: 12px;
+}
+
+.my_image{
+    width: 100%;
+    height: auto;
+}
+
+.my_title{
+    font-size: 26px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .6em;
+}
+
+.my_image_padding{
+    padding: 5px;
+}
+
+.text-justify{
+    padding: 25px;
+}
+.product_img {
+    width: 300px;
+    height: 300px;
+}
+.product{
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+/*** CART ***/
+my_custom_table{
+    min-width: 400px;
+    font-size: 14px;   
+}
+my_custom_thead{
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing:.2em;
+    background-color:aquamarine;
+}
+.custom_a{
+    text-decoration: none;
+}
+.custom_icon{
+    text-decoration: none;
+    color:black;
+}
+.my_custom_btn{
+    margin-top:5px;
+}

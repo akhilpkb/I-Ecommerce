@@ -1,0 +1,93 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block metadescription %} 
+{% if category %} 
+{{category.description|truncatewords:120}} 
+{% else %} 
+Welcome to Ecom Shop Online Store. 
+{% endif %} 
+{% endblock %} 
+{% block title %} 
+{% if category %} 
+{{category.name}} - Ecom shop 
+{% else %} 
+See our new colletions !!
+{% endif %} 
+{% endblock %} 
+{% block content %} 
+{% if category %}
+<div>
+  <div class="row my_row_class">
+    <div class="mx-auto">
+      <p><a href="{% url 'ecomapp:allProductCat' %}">Our Products</a></p>
+    </div>
+  </div>
+</div>
+{% endif %}
+<div class="mx_auto">
+  {% if category %}
+  <img
+    class="my_image"
+    src="{{ category.image.url }}"
+    alt="{{ category.name }}"
+  />
+</div>
+<br />
+<div>
+  <h2 class="text-center my_title">{{ category.name }}</h2>
+  <p class="text-justify">{{ category.description }}</p>
+</div>
+{% else %}
+<div>
+  <img
+    class="my_image my_image_padding"
+    src="{% static 'img/banner.png' %}"
+    alt="Our Products"
+  />
+</div>
+<br />
+<div>
+  <h2 class="text-center my_title">Our Products</h2>
+  <p class="text-justify">
+    It is a long established fact that a reader will be distracted by the
+    readable content of a page when looking at its layout. The point of using
+    Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
+    opposed to using 'Content here, content here', making it look like readable
+    English. Many desktop publishing packages and web page editors now use Lorem
+    Ipsum as their default model text, and a search for 'lorem ipsum' will
+    uncover many web sites still in their infancy. Various versions have evolved
+    over the years, sometimes by accident, sometimes on purpose (injected humour
+    and the like)
+  </p>
+</div>
+{% endif %}
+<div class="product">
+  <div class="row">
+    {% for product in products.object_list %}
+    <div class="col-3">
+      <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem; margin-right: 20px;">
+        <img src="{{product.image.url}}" class="card-img-top" alt="img" />
+        <div class="card-body">
+          <h5 class="card-title">{{product.name}}</h5>
+          <p class="card-text">
+            {{product.price}}
+          </p>
+          <a href="{{product.get_url}}" class="btn btn-primary">Show Details</a>
+        </div>
+      </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div>
+    {% if products.paginator.num_pages > 1 %}
+
+    <hr>
+    <div class="text-center">
+      {% for pg in products.paginator.page_range %}
+      <a href="?page={{pg}}" class="btn btn-light btn-sm {% if products.number == pg %} active {% endif %}">{{pg}}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div><br>
+</div>
+{% endblock%}
