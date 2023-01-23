@@ -61,18 +61,20 @@ See our new colletions !!
   </p>
 </div>
 {% endif %}
-<div class="product">
+<div class="container">
   <div class="row">
     {% for product in products.object_list %}
-    <div class="col-3">
-      <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem; margin-right: 20px;">
-        <img src="{{product.image.url}}" class="card-img-top" alt="img" />
+    <div class="my_bottom_margin col-9 col-sm-12 col-md-4 xol-lg-4" style="margin-bottom: 20px; height:420px">
+      <div class="card shadow text-center" style="min-width: 18rem; margin-right: 20px;">
+        <a href="{{product.get_url}}">
+        <img src="{{product.image.url}}" class="card-img-top" alt="img" width="80px" height="320px" />
+        </a>
         <div class="card-body">
           <h5 class="card-title">{{product.name}}</h5>
           <p class="card-text">
             {{product.price}}
           </p>
-          <a href="{{product.get_url}}" class="btn btn-primary">Show Details</a>
+          <!-- <a href="{{product.get_url}}" class="btn btn-primary">Show Details</a> -->
         </div>
       </div>
       </div>
@@ -80,7 +82,6 @@ See our new colletions !!
   </div>
   <div>
     {% if products.paginator.num_pages > 1 %}
-
     <hr>
     <div class="text-center">
       {% for pg in products.paginator.page_range %}
